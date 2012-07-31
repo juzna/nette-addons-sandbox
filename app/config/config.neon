@@ -28,11 +28,14 @@ common:
 				user: root
 				password:
 
+	webLoader:
+		css:
+			files:
+				- %appDir%/../libs/juzna/nette-visual-paginator/example.css
 
 	services:
 		authenticator: Authenticator
 		database: @nette.database.default
-		cssLoader: WebLoader\Nette\CssLoader::createLoader("%wwwDir%/css", "%wwwDir%/temp", "temp", [ "screen.css", "%appDir%/../libs/juzna/nette-visual-paginator/example.css" ])
 
 	factories:
 

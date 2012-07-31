@@ -29,7 +29,8 @@ $configurator->createRobotLoader()
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
 $configurator->onCompile[] = function(Configurator $sender, Compiler $compiler) {
-	$compiler->addExtension('kdyby', new \Kdyby\Extension\Curl\DI\CurlExtension());
+	$compiler->addExtension('kdyby', new \Kdyby\Extension\Curl\DI\CurlExtension);
+	$compiler->addExtension('webLoader', new \WebLoader\Nette\Config\WebLoaderExtension);
 };
 
 // Date picker
