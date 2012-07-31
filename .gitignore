@@ -1,0 +1,4 @@
+/libs/*
+/vendor
+/www/temp
+!/libs/.htaccess
