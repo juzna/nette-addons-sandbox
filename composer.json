@@ -23,6 +23,8 @@
 		"JanMarek/WebLoader": "*",
 		"juzna/nette-visual-paginator": "@dev",
 		"nifty/nifty-grid": "@dev",
-		"kdyby/curl-extension": "@dev"
+		"kdyby/curl-extension": "@dev",
+		"juzna/nette-date-picker": "@dev",
+		"juzna/nette-date-paginator": "@dev"
 	}
 }

@@ -32,6 +32,13 @@ $configurator->onCompile[] = function(Configurator $sender, Compiler $compiler) 
 	$compiler->addExtension('kdyby', new \Kdyby\Extension\Curl\DI\CurlExtension());
 };
 
+// Date picker
+use Nette\Forms\Container;
+Container::extensionMethod('addDatePicker', function (Container $container, $name, $label = NULL) {
+	return $container[$name] = new JanTvrdik\Components\DatePicker($label);
+});
+
+
 $container = $configurator->createContainer();
 
 // Setup router
