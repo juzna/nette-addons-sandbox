@@ -22,6 +22,7 @@
 		"nette/nette": ">= 2.0.4",
 		"JanMarek/WebLoader": "*",
 		"juzna/nette-visual-paginator": "@dev",
-		"nifty/nifty-grid": "@dev"
+		"nifty/nifty-grid": "@dev",
+		"kdyby/curl-extension": "@dev"
 	}
 }

@@ -16,6 +16,9 @@ common:
 		application:
 			errorPresenter: Error
 
+		container:
+			debugger: true
+
 		session:
 			expiration: 14 days
 

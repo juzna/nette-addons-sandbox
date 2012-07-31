@@ -4,6 +4,8 @@
  * My Application bootstrap file.
  */
 use Nette\Application\Routers\Route;
+use Nette\Config\Compiler;
+use Nette\Config\Configurator;
 
 
 // Load Nette Framework
@@ -26,11 +28,16 @@ $configurator->createRobotLoader()
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
+$configurator->onCompile[] = function(Configurator $sender, Compiler $compiler) {
+	$compiler->addExtension('kdyby', new \Kdyby\Extension\Curl\DI\CurlExtension());
+};
+
 $container = $configurator->createContainer();
 
 // Setup router
-$container->router[] = new Route('index.php', 'Homepage:default', Route::ONE_WAY);
-$container->router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
+$container->router[] = new \Nette\Application\Routers\SimpleRouter('Homepage:default');
+//$container->router[] = new Route('index.php', 'Homepage:default', Route::ONE_WAY);
+//$container->router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
 
 
 // Configure and run the application!
