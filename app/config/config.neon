@@ -28,6 +28,7 @@ common:
 
 	services:
 		authenticator: Authenticator
+		cssLoader: WebLoader\Nette\CssLoader::createLoader("%wwwDir%/css", "%wwwDir%/temp", [ "screen.css" ])
 
 
 	factories:

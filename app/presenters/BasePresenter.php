@@ -5,5 +5,8 @@
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
-
+	protected function createComponentCss()
+	{
+		return $this->context->cssLoader;
+	}
 }
