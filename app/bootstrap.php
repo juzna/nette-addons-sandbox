@@ -28,9 +28,34 @@ $configurator->createRobotLoader()
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
+
+// Register Addons
 $configurator->onCompile[] = function(Configurator $sender, Compiler $compiler) {
-	$compiler->addExtension('kdyby', new \Kdyby\Extension\Curl\DI\CurlExtension);
-	$compiler->addExtension('webLoader', new \WebLoader\Nette\Config\WebLoaderExtension);
+	$config = & $sender->config; // HACK: nette hack
+
+	if (isset($config['addons'])) {
+		foreach ($config['addons'] as $name => $params) {
+
+			// Attach to DIC
+			if (isset($params['config-extensions'])) foreach ($params['config-extensions'] as $extName => $className) {
+				if ( ! class_exists($className)) throw new \Nette\InvalidStateException("Class '$className' not found for Addon $name'");
+				$compiler->addExtension($extName, new $className);
+			}
+
+
+			// Assets
+			if (isset($params['assets'])) foreach ($params['assets'] as $assetType => $files) {
+				foreach ($files as $file) {
+					if (substr($file, 0, 1) !== '/') $file = LIBS_DIR . "/$name/$file";
+					$config['webLoader'][$assetType]['files'][] = $file;
+				}
+
+				// $config['webLoader'][$assetType]['files'] = array_merge($config['webLoader'][$assetType]['files'], $files);
+			}
+		}
+	}
+
+	unset ($config['addons']);
 };
 
 // Date picker

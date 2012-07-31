@@ -1,0 +1,17 @@
+# Addons installed by composer
+#
+# This file is generated automatically by composer from information in extra.nette-addon or extra.nette
+# (actually it is not at the moment, but should be in the future)
+
+addons:
+	JanMarek/WebLoader:
+		config-extensions:
+			webLoader: WebLoader\Nette\Config\WebLoaderExtension
+
+	juzna/nette-visual-paginator:
+		assets:
+			css: [ "example.css" ]
+
+	kdyby/CurlExtension:
+		config-extensions:
+			kdyby: Kdyby\Extension\Curl\DI\CurlExtension

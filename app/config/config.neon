@@ -5,6 +5,9 @@
 # http://nette.org/security-warning
 #
 common:
+	includes:
+		- addons.neon
+
 	parameters:
 
 	php:
