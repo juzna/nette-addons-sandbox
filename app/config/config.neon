@@ -28,7 +28,7 @@ common:
 
 	services:
 		authenticator: Authenticator
-		cssLoader: WebLoader\Nette\CssLoader::createLoader("%wwwDir%/css", "%wwwDir%/temp", [ "screen.css" ])
+		cssLoader: WebLoader\Nette\CssLoader::createLoader("%wwwDir%/css", "%wwwDir%/temp", "temp", [ "screen.css", "%appDir%/../libs/juzna/nette-visual-paginator/example.css" ])
 
 
 	factories:
