@@ -18,3 +18,5 @@ Custom installer makes copies this section into `app/config/addons.neon` file wh
 - custom-installer to update addons.neon
 - form extensions support
 - copy assets - images
+- libraries as addons: jQuery, jQuery UI, netteForms, ...
+- dependencies - addon uses another addon
