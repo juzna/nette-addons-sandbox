@@ -36,8 +36,11 @@
 - DatePicker+ (by JanTvrdik)
  - add to composer.json
  - register in bootstrap.php using Container::extensionMethod
+ - should add resources: jquery, jquery-ui (js + css), localization js, initializing js
  
 
  - DatePaginator
   - depends on DatePicker+
   - add to composer
+  - should have most resources by dependencies
+  - optionally add styles (?)
