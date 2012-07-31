@@ -16,4 +16,9 @@ class HomepagePresenter extends BasePresenter
 		$pag->itemCount = 51;
 	}
 
+	protected function createComponentRecords()
+	{
+		return new RecordsGrid($this->context->database->table('records'));
+	}
+
 }

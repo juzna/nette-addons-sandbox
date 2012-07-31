@@ -21,15 +21,15 @@ common:
 
 		database:
 			default:
-				dsn: 'mysql:host=localhost;dbname=test'
-				user:
+				dsn: 'mysql:host=localhost;dbname=ladenka'
+				user: root
 				password:
 
 
 	services:
 		authenticator: Authenticator
+		database: @nette.database.default
 		cssLoader: WebLoader\Nette\CssLoader::createLoader("%wwwDir%/css", "%wwwDir%/temp", "temp", [ "screen.css", "%appDir%/../libs/juzna/nette-visual-paginator/example.css" ])
-
 
 	factories:
 
