@@ -24,12 +24,18 @@ addons:
 		
 	nifty/nifty-grid:
 		assets:
+			images:
+				- resources/css/images/
+				
 			css:
-				- resources/css/
+				- resources/css/grid.css
+				- %wwwDir%/temp/jquery-ui/jquery-ui.css
 				
 			javascript:
-				- resources/js/
-				- temp/jquery.js
+				- resources/js/grid.js
+				- %wwwDir%/temp/jquery.js
+				- %wwwDir%/temp/jquery-ui.js
+				- %wwwDir%/temp/netteForms.js
 				
 			
 		extras:
