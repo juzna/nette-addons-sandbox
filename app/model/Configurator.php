@@ -82,7 +82,8 @@ class Configurator extends Nette\Config\Configurator
 					$this->$method($addonName, $params);
 
 				} else {
-					\Nette\Diagnostics\Debugger::barDump("Unknown section '$sectionName' for addon '$addonName'");
+					// section not recognized, perhaps its a custom section or it can be handled by a custom-installer
+					// \Nette\Diagnostics\Debugger::barDump("Unknown section '$sectionName' for addon '$addonName'");
 				}
 			}
 		}
