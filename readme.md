@@ -28,7 +28,7 @@ Custom installer makes copies this section into `app/config/addons.neon` file wh
 Clone this project and install all Addons using composer
 
 ```
-git clone git@github.com:juzna/nette-addons-sandbox.git sandbox
+git clone git://github.com/juzna/nette-addons-sandbox.git sandbox
 cd sandbox/
 chmod 0777 temp log
 composer install
