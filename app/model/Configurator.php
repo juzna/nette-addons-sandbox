@@ -1,6 +1,8 @@
 <?php
 
 use Nette\Config\Helpers;
+use Nette\Utils\PhpGenerator\Method;
+use Nette\Utils\PhpGenerator\ClassType;
 use Nette\Config\Compiler;
 
 
@@ -16,6 +18,9 @@ class Configurator extends Nette\Config\Configurator
 
 	/** @var Compiler for easy access in registerSectionX methods */
 	private $compiler;
+
+	/** @var array callbacks(ClassType, Method) */
+	public $onAfterCompile = array();
 
 
 
@@ -42,6 +47,7 @@ class Configurator extends Nette\Config\Configurator
 		$config['parameters'] = Helpers::merge($config['parameters'], $this->parameters);
 
 		$compiler = $this->createCompiler();
+		$compiler->addExtension('callback', new CallbackExtension($this)); // HCK: to get callbacks
 
 		// only change HERE!
 		$this->registerAddons($compiler, $config);
@@ -91,6 +97,21 @@ class Configurator extends Nette\Config\Configurator
 
 
 
+	public function beforeCompile()
+	{
+
+	}
+
+
+
+	public function afterCompile(Nette\Utils\PhpGenerator\ClassType $class)
+	{
+		$initialize = $class->methods['initialize'];
+		$this->onAfterCompile($class, $initialize);
+	}
+
+
+
 	/*****************  addon register methods  *****************j*d*/
 
 
@@ -123,10 +144,27 @@ class Configurator extends Nette\Config\Configurator
 
 	protected function registerSectionExtensionMethods($addonName, $params)
 	{
-		// FIXME: need to be executed everytime, not only on compile
-		foreach($params as $ext) {
-			\Nette\ObjectMixin::setExtensionMethod($ext['class'], $ext['method'], $ext['callback']);
-		}
+		$this->onAfterCompile[] = function(ClassType $class, Method $initialize) use ($params) {
+			foreach($params as $ext) {
+				$initialize->addBody('Nette\ObjectMixin::setExtensionMethod(?, ?, ?);', array($ext['class'], $ext['method'], $ext['callback']));
+			}
+		};
+	}
+
+
+
+	protected function registerSectionInitializer($addonName, $params)
+	{
+		$this->onAfterCompile[] = function(ClassType $class, Method $initialize) use ($params) {
+			$builder = $this->compiler->containerBuilder;
+
+			foreach((array) $params as $func) {
+				list($class, $method) = explode('::', $func);
+				$args = $builder->autowireArguments($class, $method, array());
+
+				$initialize->addBody($builder->formatPhp("$class::$method(?*);", array($args)));
+			}
+		};
 	}
 
 
@@ -147,6 +185,34 @@ class Configurator extends Nette\Config\Configurator
 		$s = str_replace('. ', ':', $s);
 		$s = str_replace('- ', '', $s);
 		return "registerSection$s";
+	}
+
+}
+
+
+
+/**
+ * Calls event handlers on Configurator, which can be set only on CompilerExtensions and not on Configurator itself
+ * FIXME: ugly, find a better way
+ */
+class CallbackExtension extends \Nette\Config\CompilerExtension
+{
+	private $configurator;
+
+	public function __construct(Configurator $configurator)
+	{
+		$this->configurator = $configurator;
+	}
+
+	public function beforeCompile()
+	{
+		$this->configurator->beforeCompile();
+	}
+
+
+	public function afterCompile(Nette\Utils\PhpGenerator\ClassType $class)
+	{
+		$this->configurator->afterCompile($class);
 	}
 
 }
