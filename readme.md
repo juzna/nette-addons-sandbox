@@ -20,3 +20,16 @@ Custom installer makes copies this section into `app/config/addons.neon` file wh
 - copy assets - images
 - libraries as addons: jQuery, jQuery UI, netteForms, ...
 - dependencies - addon uses another addon
+
+
+
+## Try it yourself
+
+Clone this project and install all Addons using composer
+
+```
+git clone git@github.com:juzna/nette-addons-sandbox.git sandbox
+cd sandbox/
+chmod 0777 temp log
+composer install
+```
