@@ -1,5 +1,10 @@
 # How to start new project with Nette
 
+Description (checkpoints) how to write a new projects using many nette addons. Now it describes how difficult it is to add addons,
+ but should transform slowly info a uniform and easy way.
+
+
+## Steps
 - composer create-project sandbox
 - fix autoloader + omit robot
 - privileges temp/ + log/
@@ -35,8 +40,9 @@
 
 - DatePicker+ (by JanTvrdik)
   - add to composer.json
-  - register in bootstrap.php using Container::extensionMethod
-  - should add resources: jquery, jquery-ui (js + css), localization js, initializing js
+  DONE: register in bootstrap.php using Container::extensionMethod
+  DONE: should add resources: jquery, jquery-ui (js + css)
+  TODO: localization js, initializing js
  
 
 - DatePaginator
