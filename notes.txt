@@ -8,8 +8,8 @@
   - create component in BasePresneter
   - use it in template
   - create www/temp/ with write privileges
-  - register it as a service
-  TODO: WebLoader should add CompilerExtension
+  DONE: register it as a service
+  DONE: WebLoader should add CompilerExtension
 
 
 - VisualPaginator
@@ -22,15 +22,15 @@
   - add to composer.json
   - optional webloader dependancy should ask whether to register resources (if webloader is available)
   - show basic info how to use (?)
-  - requires netteForms.js, jquery, jquery-UI - !!! how to solve these dependencies?
-  - requires custom js file
-  - custom CSS - refers to images in the same directory, paths must be preserved/fixed
-  - custom images !!! - WebLoader won't help here
+  DONE: requires netteForms.js, jquery, jquery-UI - !!! how to solve these dependencies?
+  DONE: requires custom js file
+  DONE: custom CSS - refers to images in the same directory, paths must be preserved/fixed
+  TODO: custom images must be copied !!! - WebLoader won't help here
 
 
 - Kdyby CURL extension
   - add to composer.json
-  - register CompilerExtension - in bootstrap in onCompile[]
+  DONE: register CompilerExtension - in bootstrap in onCompile[]
 
 
 - DatePicker+ (by JanTvrdik)
