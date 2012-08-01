@@ -11,7 +11,7 @@ require LIBS_DIR . '/autoload.php';
 
 
 // Configure application
-$configurator = new Nette\Config\Configurator;
+$configurator = new Nette\Addons\Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
 //$configurator->setDebugMode($configurator::AUTO);
