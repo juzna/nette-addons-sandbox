@@ -26,6 +26,7 @@ Clone and run this project:
 git clone git://github.com/juzna/nette-addons-sandbox.git sandbox master
 cd sandbox/
 chmod 0777 temp log
+mkdir -m 0777 www/temp
 composer install
 ```
 
