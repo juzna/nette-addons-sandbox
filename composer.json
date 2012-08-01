@@ -27,7 +27,7 @@
 		"JanMarek/WebLoader": "dev-juznovo",
 		"juzna/nette-visual-paginator": "@dev",
 		"nifty/nifty-grid": "dev-juznovo",
-		"kdyby/curl-extension": "@dev",
+		"kdyby/curl-extension": "dev-juznovo",
 		"juzna/nette-date-picker": "@dev",
 		"juzna/nette-date-paginator": "@dev"
 	},
