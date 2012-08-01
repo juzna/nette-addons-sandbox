@@ -29,7 +29,7 @@ chmod 0777 temp log
 composer install
 ```
 
-Now the sandbox should work. To add an Addon, edit `composer.json` and add the addon. Example:
+Now the sandbox should work, try it in your browser. To add an Addon, edit `composer.json` and add the addon. Example:
 ```js
 {
 	...
