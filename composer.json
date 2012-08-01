@@ -55,6 +55,18 @@
 		},
 		{
 			"type": "vcs",
+			"url": "git://github.com/juzna/nette-date-picker.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git://github.com/juzna/nette-date-paginator.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git://github.com/juzna/nette-visual-paginator.git"
+		},
+		{
+			"type": "vcs",
 			"url": "git://github.com/juzna/NiftyGrid.git"
 		}
 	]
