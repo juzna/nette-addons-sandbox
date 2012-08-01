@@ -22,11 +22,12 @@
 		"nette/nette": ">= 2.0.4",
 		"JanMarek/WebLoader": "dev-juznovo",
 		"juzna/nette-visual-paginator": "@dev",
-		"nifty/nifty-grid": "@dev",
+		"nifty/nifty-grid": "dev-juznovo",
 		"kdyby/curl-extension": "@dev",
 		"juzna/nette-date-picker": "@dev",
 		"juzna/nette-date-paginator": "@dev"
 	},
+	"minimum-stability": "dev",
 	"repositories": [
 		{
 			"type": "vcs",
@@ -39,6 +40,14 @@
 		{
 			"type": "vcs",
 			"url": "git://github.com/juzna/nette-addon-installer.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git://github.com/juzna/nette-extras.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git://github.com/juzna/NiftyGrid.git"
 		}
 	]
 }

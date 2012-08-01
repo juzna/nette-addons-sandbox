@@ -7,11 +7,40 @@ addons:
 	JanMarek/WebLoader:
 		config-extensions:
 			webLoader: WebLoader\Nette\Config\WebLoaderExtension
-
+			
+		
 	juzna/nette-visual-paginator:
-		assets:
-			css: [ "example.css" ]
-
+		assets: []
+		assets-optional:
+			css:
+				- example.css
+				
+			
+		
 	kdyby/CurlExtension:
 		config-extensions:
 			kdyby: Kdyby\Extension\Curl\DI\CurlExtension
+			
+		
+	nifty/nifty-grid:
+		assets:
+			css:
+				- resources/css/
+				
+			javascript:
+				- resources/js/
+				- temp/jquery.js
+				
+			
+		extras:
+			- jQuery
+			- jQuery-UI
+			- netteForms
+			
+		
+	nette/extras:
+		addon-section:
+			extras: Nette\Extras\Installer
+			
+		
+	
