@@ -46,7 +46,7 @@ $configurator->onCompile[] = function(Configurator $sender, Compiler $compiler) 
 			// Assets
 			if (isset($params['assets'])) foreach ($params['assets'] as $assetType => $files) {
 				foreach ($files as $file) {
-					if (substr($file, 0, 1) !== '/') $file = LIBS_DIR . "/$name/$file";
+					if (!preg_match('~^[/%]~', $file)) $file = LIBS_DIR . "/$name/$file";
 					$config['webLoader'][$assetType]['files'][] = $file;
 				}
 
