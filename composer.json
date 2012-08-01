@@ -1,5 +1,5 @@
 {
-	"name": "nette/sandbox",
+	"name": "nette/sandbox-addons",
 	"description": "The sandbox is a pre-packaged Nette Framework project, basic configured structure for your application.",
 	"keywords": ["framework", "mvc", "debugging", "templating", "database", "dbal", "forms", "latte", "neon", "mailing", "images", "micro"],
 	"homepage": "http://nette.org",
@@ -8,6 +8,10 @@
 		{
 			"name": "David Grudl",
 			"homepage": "http://davidgrudl.com"
+		},
+		{
+			"name": "Jan Dolecek",
+			"email": "juzna.cz@gmail.com"
 		},
 		{
 			"name": "Nette Community",
