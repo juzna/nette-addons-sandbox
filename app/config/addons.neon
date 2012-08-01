@@ -4,3 +4,98 @@
 # (actually it is not at the moment, but should be in the future)
 
 addons:
+	juzna/nette-visual-paginator:
+		assets:
+			css:
+				- example.css
+				
+			
+		
+	nette/extras:
+		addon-section:
+			extras: Nette\Extras\Installer
+			
+		
+	nifty/nifty-grid:
+		assets:
+			images:
+				- resources/css/images/
+				
+			css:
+				- resources/css/grid.css
+				- %wwwDir%/temp/jquery-ui/jquery-ui.css
+				
+			javascript:
+				- resources/js/grid.js
+				- %wwwDir%/temp/jquery.js
+				- %wwwDir%/temp/jquery-ui.js
+				- %wwwDir%/temp/netteForms.js
+				
+			
+		extras:
+			- jQuery
+			- jQuery-UI
+			- netteForms
+			
+		
+	JanMarek/WebLoader:
+		config-extensions:
+			webLoader: WebLoader\Nette\Config\WebLoaderExtension
+			
+		
+	kdyby/curl-extension:
+		config-extensions:
+			kdyby: Kdyby\Extension\Curl\DI\CurlExtension
+			
+		
+	juzna/nette-date-picker:
+		assets:
+			javascript:
+				- %wwwDir%/temp/jquery.js
+				- %wwwDir%/temp/jquery-ui.js
+				
+			css:
+				- %wwwDir%/temp/jquery-ui/jquery-ui.css
+				
+			
+		assets-optional: []
+		extension-methods:
+			-
+				class: Nette\Forms\Container
+				method: addDatePicker
+				callback: JanTvrdik\Components\DatePicker::_addDatePicker
+				
+			
+		extras:
+			- jQuery
+			- jQuery-UI
+			
+		
+	juzna/nette-date-paginator:
+		assets: []
+		assets-optional: []
+		
+	echo511/plupload:
+		extras:
+			- jQuery
+			- jQuery-UI
+			
+		assets:
+			javascript:
+				- %wwwDir%/temp/jquery.js
+				- %wwwDir%/temp/jquery-ui.js
+				
+			css:
+				- %wwwDir%/temp/jquery-ui/jquery-ui.css
+				
+			
+		
+	bazo/watchdog-client:
+		initializer: Bazo\Watchdog\NetteLogger::register
+		
+	bazo/nette-neo4j-extension:
+		config-extensions:
+			neo4j: Bazo\Extensions\Neo4j\DI\Neo4jExtension
+			
+		
+	
