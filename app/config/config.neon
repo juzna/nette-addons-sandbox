@@ -32,9 +32,6 @@ common:
 				password:
 
 	webLoader:
-		css:
-			files:
-				- %appDir%/../libs/juzna/nette-visual-paginator/example.css
 
 	services:
 		authenticator: Authenticator
