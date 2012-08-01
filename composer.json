@@ -23,7 +23,8 @@
 	},
 	"require": {
 		"php": ">= 5.3.0",
-		"nette/nette": "2.0.*",
+		"nette/nette": ">= 2.0.4",
+		"nette/addon-installer": "@dev",
 		"JanMarek/WebLoader": "dev-juznovo",
 		"juzna/nette-visual-paginator": "@dev",
 		"nifty/nifty-grid": "dev-juznovo",

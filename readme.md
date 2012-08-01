@@ -5,14 +5,18 @@ Please join the [discussion](http://forum.nette.org/cs/10875-nette-addons-konven
 
 
 ## Overview
-Supported Nette Addons are configured to `type=nette-addon` in `composer.json` file and Nette related info in section `extra`.
-Here is an [example](https://github.com/juzna/kdyby-CurlExtension/blob/juznovo/composer.json) of such addon.
+This is a sandbox/skeleton, from which you can start your projects with Nette Addons. It has the basic code needed to run them.
 
+We try to simplyfy addon instalation by automatig as many steps as possible. Previously, you would have to download the addon, extract it to correct place,
+ copy assets to www directory and register the addon in several places of your app. Now, with Composer's help, all those steps will be automated for you.
+ All you need is just to write down the *addon name* into `composer.json`, section *require* (like all other dependencies).
 
-If you want to install an supported Addon, just put it as a requirement to your project's `composer.json`.
 
 
 ## How it works?
+Supported Nette Addons are configured to `type=nette-addon` in `composer.json` file and Nette related info in section `extra`.
+Here is an [example](https://github.com/juzna/kdyby-CurlExtension/blob/juznovo/composer.json) of such addon.
+
 Custom installer copies the addon section from composer.json to `app/config/addons.neon` file which is then processed by the app.
 For more details, see [nette/addon-installer](https://github.com/juzna/nette-addon-installer) which does half of the hard work.
 
@@ -23,10 +27,10 @@ For more details, see [nette/addon-installer](https://github.com/juzna/nette-add
 Clone and run this project:
 
 ```
-git clone git://github.com/juzna/nette-addons-sandbox.git sandbox master
+git clone git://github.com/juzna/nette-addons-sandbox.git sandbox
 cd sandbox/
 chmod 0777 temp log
-mkdir -m 0777 www/temp
+mkdir -m0777 www/temp
 composer install
 ```
 
@@ -38,7 +42,7 @@ Now the sandbox should work, try it in your browser. To add an Addon, edit `comp
 		"php": ">= 5.3.0",
 		"nette/nette": "2.0.*",
 		"JanMarek/WebLoader": "dev-juznovo",
-		"juzna/nette-visual-paginator": "@dev",
+		"juzna/nette-visual-paginator": "@dev"
 	},
 	...
 }
