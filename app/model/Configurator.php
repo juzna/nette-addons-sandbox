@@ -122,6 +122,7 @@ class Configurator extends Nette\Config\Configurator
 
 	protected function registerSectionExtensionMethods($addonName, $params)
 	{
+		// FIXME: need to be executed everytime, not only on compile
 		foreach($params as $ext) {
 			\Nette\ObjectMixin::setExtensionMethod($ext['class'], $ext['method'], $ext['callback']);
 		}
