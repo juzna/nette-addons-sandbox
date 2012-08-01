@@ -5,7 +5,6 @@
  */
 use Nette\Application\Routers\Route;
 use Nette\Config\Compiler;
-use Nette\Config\Configurator;
 
 
 // Load Nette Framework
@@ -13,7 +12,9 @@ require LIBS_DIR . '/autoload.php';
 
 
 // Configure application
-$configurator = new Nette\Config\Configurator;
+//$configurator = new Nette\Config\Configurator;
+require_once APP_DIR . '/model/Configurator.php';
+$configurator = new Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
 //$configurator->setDebugMode($configurator::AUTO);
@@ -28,43 +29,6 @@ $configurator->createRobotLoader()
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
-
-// Register Addons - TODO: refactor
-$configurator->onCompile[] = function(Configurator $sender, Compiler $compiler) {
-	$config = & $sender->config; // HACK: nette hack
-
-	if (isset($config['addons'])) {
-		foreach ($config['addons'] as $name => $params) {
-
-			// Attach to DIC
-			if (isset($params['config-extensions'])) foreach ($params['config-extensions'] as $extName => $className) {
-				if ( ! class_exists($className)) throw new \Nette\InvalidStateException("Class '$className' not found for Addon $name'");
-				$compiler->addExtension($extName, new $className);
-			}
-
-
-			// Assets
-			if (isset($params['assets'])) foreach ($params['assets'] as $assetType => $files) {
-				foreach ($files as $file) {
-					if (!preg_match('~^[/%]~', $file)) $file = LIBS_DIR . "/$name/$file";
-					$config['webLoader'][$assetType]['files'][] = $file;
-				}
-
-				// $config['webLoader'][$assetType]['files'] = array_merge($config['webLoader'][$assetType]['files'], $files);
-			}
-
-
-			// Extension methods
-			if (isset($params['extension-methods'])) foreach($params['extension-methods'] as $ext) {
-				\Nette\ObjectMixin::setExtensionMethod($ext['class'], $ext['method'], $ext['callback']);
-			}
-		}
-	}
-
-	unset ($config['addons']);
-};
-
-
 $container = $configurator->createContainer();
 
 // Setup router
