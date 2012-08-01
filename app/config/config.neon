@@ -33,6 +33,13 @@ common:
 
 	webLoader:
 
+	neo4j:
+		host: localhost
+		port: 7474
+		cachePrefix: neo4j
+		metaDataCache: apc
+		proxyDir: %appDir%/models/proxies
+
 	services:
 		authenticator: Authenticator
 		database: @nette.database.default

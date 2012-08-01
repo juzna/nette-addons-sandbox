@@ -31,7 +31,8 @@
 		"juzna/nette-date-picker": "@dev",
 		"juzna/nette-date-paginator": "@dev",
 		"bazo/watchdog-client": "@dev",
-		"echo511/plupload": "@dev"
+		"echo511/plupload": "@dev",
+		"bazo/nette-neo4j-extension": "@dev"
 	},
 	"minimum-stability": "dev",
 	"repositories": [
@@ -78,6 +79,10 @@
 		{
 			"type": "vcs",
 			"url": "git://github.com/juzna/nette-plupload.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git://github.com/juzna/nette-neo4j-extension.git"
 		}
 	]
 }
