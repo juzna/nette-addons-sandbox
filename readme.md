@@ -23,7 +23,7 @@ For more details, see [nette/addon-installer](https://github.com/juzna/nette-add
 Clone and run this project:
 
 ```
-git clone git://github.com/juzna/nette-addons-sandbox.git sandbox
+git clone git://github.com/juzna/nette-addons-sandbox.git sandbox master
 cd sandbox/
 chmod 0777 temp log
 composer install
