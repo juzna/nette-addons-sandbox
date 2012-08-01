@@ -29,7 +29,9 @@
 		"nifty/nifty-grid": "dev-juznovo",
 		"kdyby/curl-extension": "dev-juznovo",
 		"juzna/nette-date-picker": "@dev",
-		"juzna/nette-date-paginator": "@dev"
+		"juzna/nette-date-paginator": "@dev",
+		"bazo/watchdog-client": "@dev",
+		"echo511/plupload": "@dev"
 	},
 	"minimum-stability": "dev",
 	"repositories": [
@@ -68,6 +70,14 @@
 		{
 			"type": "vcs",
 			"url": "git://github.com/juzna/NiftyGrid.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git://github.com/juzna/watchdog-client.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git://github.com/juzna/nette-plupload.git"
 		}
 	]
 }
