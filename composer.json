@@ -35,6 +35,10 @@
 		{
 			"type": "vcs",
 			"url": "git://github.com/juzna/kdyby-CurlExtension.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git://github.com/juzna/nette-addon-installer.git"
 		}
 	]
 }
