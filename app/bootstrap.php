@@ -29,7 +29,7 @@ $configurator->createRobotLoader()
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
 
-// Register Addons
+// Register Addons - TODO: refactor
 $configurator->onCompile[] = function(Configurator $sender, Compiler $compiler) {
 	$config = & $sender->config; // HACK: nette hack
 
@@ -52,17 +52,17 @@ $configurator->onCompile[] = function(Configurator $sender, Compiler $compiler) 
 
 				// $config['webLoader'][$assetType]['files'] = array_merge($config['webLoader'][$assetType]['files'], $files);
 			}
+
+
+			// Extension methods
+			if (isset($params['extension-methods'])) foreach($params['extension-methods'] as $ext) {
+				\Nette\ObjectMixin::setExtensionMethod($ext['class'], $ext['method'], $ext['callback']);
+			}
 		}
 	}
 
 	unset ($config['addons']);
 };
-
-// Date picker
-use Nette\Forms\Container;
-Container::extensionMethod('addDatePicker', function (Container $container, $name, $label = NULL) {
-	return $container[$name] = new JanTvrdik\Components\DatePicker($label);
-});
 
 
 $container = $configurator->createContainer();
